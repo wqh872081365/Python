@@ -1,8 +1,8 @@
-#知乎模拟登陆
+知乎模拟登陆
 
-#Python3实现
+Python3实现
 
-#使用：
+使用：
 id = 'email'
 password = 'password'
 更改后输出
