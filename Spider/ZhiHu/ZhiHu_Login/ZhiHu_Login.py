@@ -50,4 +50,4 @@ postDict = {
 postData = urllib.parse.urlencode(postDict).encode()  # 发送 TextView
 op = opener.open(url, postData)
 data = op.read().decode()
-print(data.decode())  # 接受 TextView
+print(data.encode())  # 接受 TextView
