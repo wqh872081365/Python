@@ -5,7 +5,7 @@
 # pygame version：1.9.2a0
 # system：windows7 64 bit
 # Author: WangQihui  E-mail : wangqihui0324@gmail.com
-# date: 2016/05/14 -05/16
+# date: 2016/05/14 -05/18
 # version: 1.0
 
 
@@ -40,11 +40,14 @@ class ChessPlay(object):
         self.sum_time = 0
         self.SCREEN_SIZE = [640, 489]  # SCREEN_SIZE初始化
         self.screen = pygame.display.set_mode(self.SCREEN_SIZE, 0, 32)  # screen初始化
-        self.background = pygame.image.load("images/chessboard.png").convert()  # 获得background
-        self.background_side = pygame.image.load("images/board.png").convert()  # 获得background_side
-        self.chess_black = pygame.image.load("images/black.png").convert_alpha()  # 获得chess_black
-        self.chess_white = pygame.image.load("images/white.png").convert_alpha()  # 获得chess_white
-        self.font = pygame.font.Font("source/fonts/ncsj.ttf", 25)  # 字体设置
+        self.background = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/chessboard.png").convert()
+        # 获得background
+        self.background_side = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/board.png").convert()
+        # 获得background_side
+        self.chess_black = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/black.png").convert_alpha()
+        # 获得chess_black
+        self.chess_white = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/white.png").convert_alpha()  # 获得chess_white
+        self.font = pygame.font.Font("E:/pycharm/github/Python/game/FIR/source/fonts/ncsj.ttf", 25)  # 字体设置
         self.text1_surface = self.font.render(u"玩家先", True, (0, 0, 0), (0, 255, 0))
         # pygame.image.save(self.text1_surface, "source/image/text1.png")
         self.text2_surface = self.font.render(u'AI先', True, (0, 0, 0), (255, 255, 255))
@@ -95,13 +98,14 @@ class ChessPlay(object):
             self.screen.blit(self.text12_surface, (500, 350))
             self.screen.blit(self.text13_surface, (500, 50))
 
-            if self.chess_start == 1:
-                self.get_mouse()
-
             self.chess_place()
             if self.chess_start == 1:
                 self.sum_time = int(time.time() - self.start_time)
                 self.text13_surface = self.font.render(str(self.sum_time), True, (0, 0, 0), (255, 255, 255))
+
+            if self.chess_start == 1:
+                self.get_mouse()
+
             pygame.display.update()
 
             for event in pygame.event.get():  # 事件处理
@@ -321,7 +325,7 @@ class ChessPlay(object):
         if len(self.chess_list_opp) == 0:
             self.chess_result = 'game over !'
             self.text12_surface = self.font.render(u'game over !', True, (0, 0, 0), (0, 255, 0))
-            pygame.image.save(self.text12_surface, "source/image/text12_1.png")
+            # pygame.image.save(self.text12_surface, "source/image/text12_1.png")
             return 1
         else:
             x, y = self.last_pos
@@ -404,11 +408,11 @@ class ChessPlay(object):
                 if (self.first_step == 'P' and value == 'black') or (self.first_step == 'C' and value == 'white'):
                     self.chess_result = 'You win !'
                     self.text12_surface = self.font.render(u'You win !', True, (0, 0, 0), (0, 255, 0))
-                    pygame.image.save(self.text12_surface, "source/image/text12_2.png")
+                    # pygame.image.save(self.text12_surface, "source/image/text12_2.png")
                 else:
                     self.chess_result = 'You lost !'
                     self.text12_surface = self.font.render(u'You lost !', True, (0, 0, 0), (0, 255, 0))
-                    pygame.image.save(self.text12_surface, "source/image/text12_3.png")
+                    # pygame.image.save(self.text12_surface, "source/image/text12_3.png")
                 # print self.chess_result
                 return 1
 
