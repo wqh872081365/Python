@@ -55,8 +55,8 @@ class Lagou_Job_Spider(scrapy.Spider):
         json_jobs = json_jobs['content']['positionResult']['result']
         # 调用body_as_unicode()是为了能处理unicode编码的数据
         self.totalPageCount = (json.loads(response.body_as_unicode())['content']['positionResult']['totalCount']-1)/15+1
-        if self.totalPageCount > 15:
-            self.totalPageCount = 15
+        if self.totalPageCount > 30:
+            self.totalPageCount = 30
         for json_job in json_jobs:
             job = ScrapyLagouItem()
             job['city'] = json_job['city'].encode('utf-8')
