@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+
+    $('#container').highcharts({
+
+
+        title: {
+            text: 'Python Salary - City'
+        },
+
+        subtitle: {
+            text: ' 5/30 2016'
+        },
+
+        xAxis: {
+            categories: ['上海', '北京', '杭州', '深圳', '广州', '南京', '苏州', '厦门', '成都']
+        },
+
+        yAxis: {
+            title: {
+                text: 'Python Salary ( K )'
+            },
+            min: 0
+        },
+
+        tooltip: {
+            valueSuffix: ' K'
+        },
+
+        plotOptions: {
+            columnrange: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function () {
+                        return this.y + ' K';
+                    }
+                }
+            }
+        },
+
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+
+        series: [{
+            type: 'columnrange',
+            name: 'Salary',
+            data: [
+                [2, 25],
+                [2, 25],
+                [2, 20],
+                [1, 20],
+                [2, 15],
+                [3, 15],
+                [4, 15],
+                [4, 10],
+                [2, 12]
+            ]
+        }, {
+                type: 'line',
+                name: 'salary_avg',
+                data: [11.64, 13.0, 10.03, 10.38, 8.09, 7.4, 8.17, 6.57, 7.27],
+                color: '#B3EE3A'
+        }]
+
+    });
+
+});
+		</script>
+	</head>
+	<body>
+<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/highcharts-more.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	</body>
+</html>
