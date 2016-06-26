@@ -26,8 +26,8 @@ class Lagou_Job_Spider(scrapy.Spider):
     curcity = 0  # 当前城市
     curkd = 0  # 当前方向
 
-    kd = kds[curcity]  # POST数据
-    city = citys[curkd]  # POST数据
+    kd = kds[curkd]  # POST数据
+    city = citys[curcity]  # POST数据
 
     def start_requests(self):
         # 首个爬取数据
