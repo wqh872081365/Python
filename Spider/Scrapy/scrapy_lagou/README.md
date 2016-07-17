@@ -13,7 +13,7 @@ scrapy crawl lagou_job
 
 items.json 文件。
 
-在MySQL先建立好数据库和表，数据无重复。
+MySQL保存数据。
 
 # 需要重要的库 
 
