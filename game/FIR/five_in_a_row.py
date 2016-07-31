@@ -40,14 +40,14 @@ class ChessPlay(object):
         self.sum_time = 0
         self.SCREEN_SIZE = [640, 489]  # SCREEN_SIZE初始化
         self.screen = pygame.display.set_mode(self.SCREEN_SIZE, 0, 32)  # screen初始化
-        self.background = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/chessboard.png").convert()
+        self.background = pygame.image.load("C:/Users/wangq/Documents/wqh872081365/Python/game/FIR/images/chessboard.png").convert()
         # 获得background
-        self.background_side = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/board.png").convert()
+        self.background_side = pygame.image.load("C:/Users/wangq/Documents/wqh872081365/Python/game/FIR/images/board.png").convert()
         # 获得background_side
-        self.chess_black = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/black.png").convert_alpha()
+        self.chess_black = pygame.image.load("C:/Users/wangq/Documents/wqh872081365/Python/game/FIR/images/black.png").convert_alpha()
         # 获得chess_black
-        self.chess_white = pygame.image.load("E:/pycharm/github/Python/game/FIR/images/white.png").convert_alpha()  # 获得chess_white
-        self.font = pygame.font.Font("E:/pycharm/github/Python/game/FIR/source/fonts/ncsj.ttf", 25)  # 字体设置
+        self.chess_white = pygame.image.load("C:/Users/wangq/Documents/wqh872081365/Python/game/FIR/images/white.png").convert_alpha()  # 获得chess_white
+        self.font = pygame.font.Font("C:/Users/wangq/Documents/wqh872081365/Python/game/FIR/source/fonts/ncsj.ttf", 25)  # 字体设置
         self.text1_surface = self.font.render(u"玩家先", True, (0, 0, 0), (0, 255, 0))
         # pygame.image.save(self.text1_surface, "source/image/text1.png")
         self.text2_surface = self.font.render(u'AI先', True, (0, 0, 0), (255, 255, 255))
