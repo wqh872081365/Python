@@ -4,6 +4,9 @@
 import string
 import requests
 import re
+import pickle
+import zipfile
+from PIL import Image
 
 'number 0'
 
@@ -91,7 +94,83 @@ for x in range(400):
 """
 
 'number 5'
+# channel
+
+# with open('banner.p', 'rb') as f:
+#     d = pickle.load(f)
+# print d, len(d)
+
+"""
+for x in d:
+    result = ''
+    for y in x:
+        result += y[0]*y[1]
+    print result
+"""
+
+'number 6'
+# hockey -> oxygen
+
+"""
+res = re.compile(r'[0-9]+')
+res4 = '90052'
+for x in range(1000):
+    with zipfile.ZipFile('channel.zip', 'r') as z:
+        r4 = z.read(res4 + '.txt')
+        comment4 = z.getinfo(res4 + '.txt').comment
+        if comment4 != '':
+            print comment4,
+        else:
+            print '\n'
+        m = re.search(res, r4)
+        if m is not None:
+            res4 = m.group().encode('utf-8')
+            # print r4, x
+        else:
+            # print r4, x
+            break
+"""
+
+'number 7'
+# 43 integrity
+
+im = Image.open('oxygen.png', 'r')
+w, h = im.size
+print w, h
+pixel = im.getpixel((w-1, h-1))
+# print pixel
+# pixel = im.getpixel((0, 0))
+# print pixel
+for x in range(0, w):
+    for y in range(0, h):
+        # print im.getpixel((x, y))
+        if im.getpixel((x, y))[0] == im.getpixel((x, y))[1] == im.getpixel((x, y))[2]:
+            pass
+            # print im.getpixel((x, y))[0], x, y
+list7 = []
+for x in range(0, w, 7):
+    pixel = im.getpixel((x, 43))[0]
+    list7.append(pixel)
+
+
+print len(list7)
+print list7
+print [chr(x) for x in list7]
+
+for x in list7:
+    print chr(x),
+
+print '\n'
+
+result = ''.join([chr(x) for x in list7])
+print result
+
+res = re.compile(r'([0-9]+)')
+res7 = re.findall(res, result)
+print res7
+
+print ''.join([chr(int(x)) for x in res7])
+
+'number 8'
 #
-
-
 
