@@ -40,7 +40,7 @@ class MySQLSteamPipeline(object):
 
     def _insert_recode(self, conn, item):
         # 将爬取的数据插入到MySQL
-        if type(item) == SteamItem:
+        if type(item) == SteamItem and item['images']:
 
             conn.execute("""INSERT IGNORE INTO game(appid, url, image_urls, image_path, name, platform, released,
             summary, summary_detail, discount, price, price_old) VALUES ('%s', '%s', '%s' ,'%s','%s', '%s','%s','%s',
@@ -52,7 +52,8 @@ class MySQLSteamPipeline(object):
                                         item['summary'].replace("'", "''").encode('utf-8'),
                                         item['summary_detail'].replace("'", "''").encode('utf-8'),
                                         item['discount'].encode('utf-8'),
-                                        item['price'].encode('utf-8'), item['price_old'].encode('utf-8')))
+                                        item['price'].replace("'", "''").encode('utf-8'),
+                                        item['price_old'].replace("'", "''").encode('utf-8'),))
 
         elif type(item) == SteamDescItem:
 
